@@ -1,0 +1,49 @@
+.headertag {
+	color: skyblue;
+	text-align: center;
+	font-family: cursive;
+	font-size: 2rem;
+  }
+  .headcomp{
+    text-align: center;
+  }
+  .tagline{
+    color: black;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  .aside{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width:18%;
+    border:4px solid skyblue;
+  }
+  .article-box {
+    border: 4px solid skyblue;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100px;
+  }
+ 
+  .article-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  .article-block {
+    background-color: #fff;
+    padding: 20px;
+    border: 3px solid skyblue;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    grid-column: span 1;
+    grid-row: span 1;
+    height: 300px; /* Set a fixed height */
+    width:540px;
+  }
+  .article-block:hover{
+    border: 3px solid black;
+  }
+ 
+  h3{
+    color: skyblue;
+    font-size: 2rem;
+    font-family: cursive;
+  }
