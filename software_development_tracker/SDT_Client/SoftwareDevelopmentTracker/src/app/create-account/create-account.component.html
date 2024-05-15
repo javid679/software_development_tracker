@@ -1,0 +1,68 @@
+<div class="container-fluid d-flex justify-content-center registeration">
+    <form class="row g-3" *ngIf="!registerSuccess">
+    <div class="col-12">
+        <h4>Sign up here</h4>
+        <mat-divider></mat-divider>
+        <div class="example-container">
+            <div class="row">
+                <div class="col-8">
+                    <mat-form-field appearance="outline" class="row">
+                        <mat-label>Full Name</mat-label>
+                        <input matInput placeholder="Name"  [formControl]="full_name">
+                        <mat-error *ngIf="full_name.invalid">{{getNameErrorMessage()}}</mat-error>
+                        <mat-icon matSuffix>person</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="Email"  [formControl]="mail">
+                        <mat-error *ngIf="mail.invalid">{{getMailErrorMessage()}}</mat-error>
+                        <mat-icon matSuffix>contact_mail</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <mat-form-field appearance="outline">
+                        <mat-label>New Password</mat-label>
+                        <input matInput placeholder="New Password" type="password" [formControl]="new_password">
+                        <mat-error *ngIf="new_password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+                        <mat-icon matSuffix>vpn_key</mat-icon> 
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Confirm Password</mat-label>
+                        <input matInput placeholder="Confirm Password" type="password" [formControl]="confirm_password">
+                        <mat-error *ngIf="new_password.invalid">{{getConfirmPasswordErrorMessage()}}</mat-error>
+                        <mat-icon matSuffix>vpn_key</mat-icon> 
+                    </mat-form-field>
+                </div>
+            </div>
+            
+        </div>
+        <div class="login-actions d-flex justify-content-center">
+            <button mat-raised-button color="primary" class="mx-2" (click)="registeredUser(full_name.value,mail.value,new_password.value)" [disabled]="isDisabled">Submit</button>
+            <a mat-raised-button color="primary" routerLink="/login">Back</a>
+        </div>
+    </div>
+    </form>
+    <div class="row" *ngIf="registerSuccess">
+        <div class="col-12">
+            <mat-card class="example-card">
+                <mat-card-header>
+                  <mat-card-title class="d-flex card-title-alignment">Successfully registered</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image src="/assets/imgs/success.png">
+                <mat-card-actions class="d-flex justify-content-center">
+                    <a mat-raised-button color="primary" routerLink="/login">Login</a>
+                </mat-card-actions>
+              </mat-card>
+        </div>
+    </div>
+</div>

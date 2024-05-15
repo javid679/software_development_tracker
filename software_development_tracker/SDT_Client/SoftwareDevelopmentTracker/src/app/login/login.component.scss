@@ -1,0 +1,47 @@
+.imgcontainers {
+    height: 100%;
+}
+.login {
+    background-color: aquamarine;
+    height: auto;
+}
+.bgimg {
+    background-image: url('/assets/imgs/bg-img1.jpg');
+    background-color: #cccccc; 
+    height: 260px;
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover; 
+    width: 100%;    
+}
+
+.login-card {
+    max-width: 400px;
+    margin: 10% 32%;
+}
+
+.login-actions {
+    margin: auto;
+    text-align: center;
+}
+
+.login-actions a {
+    margin-bottom: 10px;
+}
+
+form {
+    margin-left: 15%;
+}
+
+.next {
+    margin: 0 30% 0 30%;
+}
+
+.login-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+.headingcenter {
+    margin: 0 25% 0 25%;
+}

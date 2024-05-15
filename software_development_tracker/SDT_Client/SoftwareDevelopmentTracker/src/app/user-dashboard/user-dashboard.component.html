@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="row p-2">
+        <h1 class="col-6">Project</h1>
+        <!-- <a class="col-2 ml-3" mat-raised-button color="primary" (click)="openDialog()">Create Project</a> -->
+        <div>
+          <div *ngIf="!showCreateProject">
+            <button mat-raised-button color="primary" class="mx-2 my-2" (click) = "toggleCreateproject()">Create New Project</button>
+          </div>
+          <div class="create-account" *ngIf="showCreateProject">
+            <div class="row">
+              <div class="col-8">
+                  <mat-form-field appearance="outline" class="row">
+                      <mat-label>Project Name</mat-label>
+                      <input matInput placeholder="Project Name"  [formControl]="name">
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" class="row">
+                    <mat-label>Project Description</mat-label>
+                    <input matInput placeholder="Project Description"  [formControl]="description">
+                </mat-form-field>
+                <button mat-raised-button color="primary" (click)="createProject(name.value,description.value)" >Create</button>
+              </div>
+          </div>
+        </div>
+    
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      
+        <ng-container matColumnDef="projectName">
+          <th mat-header-cell *matHeaderCellDef> Project Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef> Description </th>
+          <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="createdBy">
+          <th mat-header-cell *matHeaderCellDef> Created by </th>
+          <td mat-cell *matCellDef="let element"> {{element.createdBy}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="createdOn">
+          <th mat-header-cell *matHeaderCellDef> Date Created </th>
+          <td mat-cell *matCellDef="let element"> {{element.createdOn}} </td>
+        </ng-container>
+      
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openProject(row)"></tr>
+      </table>
+</div>
+

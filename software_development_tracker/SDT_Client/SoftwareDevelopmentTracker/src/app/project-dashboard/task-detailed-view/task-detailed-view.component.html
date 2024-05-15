@@ -1,0 +1,148 @@
+<div class="task-edit-popup">
+  <div [ngClass]="{ 'is-active': editMode }">
+    <h1 mat-dialog-title>
+      <span>{{ selectedTask.id }}</span> - <span><p class="active" *ngIf="!editMode">{{selectedTask.name}}</p>
+        <div class="active" *ngIf="editMode">
+          <mat-form-field class="comment-box" appearance="fill">
+              <input matInput placeholder="Name" [(ngModel)] = "selectedTask.name"/>
+          </mat-form-field>
+        </div></span>
+    </h1>
+    <mat-divider class="m-0" inset></mat-divider>
+    <div mat-dialog-content>
+      <strong>Description:</strong>
+      <p *ngIf="!editMode">{{ selectedTask.description }}</p>
+      <div class="active" *ngIf="editMode">
+        <mat-form-field class="comment-box" appearance="outline">
+          <textarea
+            matInput
+            placeholder="Description"
+            [(ngModel)]="selectedTask.description"
+          ></textarea>
+        </mat-form-field>
+      </div>
+
+      <strong>Status:</strong>
+      <p *ngIf="!editMode">{{ selectedTask.issueStatus }}</p>
+      <div class="active" *ngIf="editMode">
+        <mat-form-field appearance="outline">
+          <mat-label>Status</mat-label>
+          <mat-select
+            [(value)]="selectedTask.issueStatus"
+            [(ngModel)]="status"
+          >
+            <mat-option *ngFor="let status of statusList" [value]="status.id">
+              {{ status.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div *ngIf="!editMode">
+      <strong>Type:</strong>
+      <p>{{ selectedTask.issueType }}</p>
+      </div>
+      <div class="active" *ngIf="editMode">
+        <strong>Current issue type: </strong><p>{{selectedTask.issueType}}</p>
+        <mat-form-field appearance="outline">
+          <mat-label>Change Type</mat-label>
+          <mat-select
+            [(value)]="selectedTask.issueType"
+            [(ngModel)]="selectedTask.issueType"
+          >
+            <mat-option></mat-option>
+            <mat-option
+              *ngFor="let issueType of issueTypeList"
+              [value]="issueType.id"
+            >
+              {{ issueType.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div *ngIf="!editMode">
+      <strong>Report To:</strong>
+      <p>{{ selectedTask.reportTo }}</p>
+    </div>
+      <div class="active" *ngIf="editMode">
+        <strong>Current Report To: </strong><p>{{selectedTask.reportTo}}</p>
+        <mat-form-field appearance="outline">
+          <mat-label>Report To</mat-label>
+          <mat-select
+            [(value)]="selectedTask.reportTo"
+            [(ngModel)]="reportTo"
+          >
+            <mat-option
+              *ngFor="let projectMember of projectMembers"
+              [value]="projectMember.id"
+            >
+              {{ projectMember.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div *ngIf="!editMode">
+      <strong>Assigned To:</strong>
+      <p>{{ selectedTask.assignedTo }}</p>
+    </div>
+      <div class="active" *ngIf="editMode">
+        <strong>Current assigned to: </strong><p>{{selectedTask.assignedTo}}</p>
+        <mat-form-field appearance="outline">
+          <mat-label>Assigned To</mat-label>
+          <mat-select
+            [(value)]="selectedTask.assignedTo.value"
+            [(ngModel)]="assignedTo"
+          >
+            <mat-option
+              *ngFor="let projectMember of projectMembers"
+              [value]="projectMember.id"
+            >
+              {{ projectMember.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div *ngIf="!editMode">
+      <strong>Created By:</strong>
+      <p>{{ selectedTask.createdBy }}</p>
+    </div>
+
+    <div *ngIf="!editMode">
+      <strong>Created On:</strong>
+      <p>{{ selectedTask.createdOn }}</p>
+    </div>
+    <div *ngIf="!editMode">
+      <strong>Modified On:</strong>
+      <p>{{ selectedTask.modifiedOn }}</p>
+    </div>
+
+    <mat-divider class="m-0" inset></mat-divider>
+    <div mat-dialog-actions>
+      <button mat-button color="warn" mat-dialog-close>Close</button>
+      <div *ngIf="!editMode">
+        <button
+          mat-button
+          color="primary"
+          mat-dialog
+          (click)="editMode = !editMode"
+        >
+          Update
+        </button>
+      </div>
+
+      <div *ngIf="editMode">
+      <button
+        mat-button
+        color="primary"
+        mat-dialog
+        (click)="doneEditing(selectedTask,selectedTask.description,selectedTask.name,Type,reportTo,assignedTo,status);editMode = !editMode"
+      >
+        Done
+      </button>
+    </div>
+    </div>
+  </div>
+</div>

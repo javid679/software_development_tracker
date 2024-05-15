@@ -1,0 +1,144 @@
+<div class="container">
+    <create-task></create-task>
+    <mat-tab-group mat-align-tabs="center" mat-stretch-tabs>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">public</mat-icon>
+            Backlogs
+          </ng-template>
+          <mat-card class="example-card my-2" *ngFor= "let todo of backlog; let i = index" >
+            <mat-card-header>
+                <div mat-card-avatar class="header-image"></div>
+                <mat-card-title>{{todo.name}}</mat-card-title>
+                <button mat-icon-button [matMenuTriggerFor]="menu" class="menu">
+                    <mat-icon>more_vert</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item >
+                      Edit
+                    </button>
+                    <button mat-menu-item >
+                        Delete
+                    </button>
+                  </mat-menu>
+            </mat-card-header>
+            <mat-divider inset></mat-divider>
+            <mat-card-content >
+              <p class="active">{{todo.issueStatus}}</p>
+              <p class="active">{{todo.type}}</p>
+            </mat-card-content>
+            <mat-divider inset></mat-divider>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="openDialog(todo)">View Details</button>
+            </mat-card-actions>
+        </mat-card>
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon class="example-tab-icon">co_present</mat-icon>
+              In Progress
+            </ng-template>
+            <mat-card class="example-card my-2" *ngFor= "let ongoing of inProgress; let i = index" >
+                <mat-card-header>
+                    <div mat-card-avatar class="header-image"></div>
+                    <mat-card-title>{{ongoing.name}}</mat-card-title>
+                    <button mat-icon-button [matMenuTriggerFor]="menu" class="menu">
+                        <mat-icon>more_vert</mat-icon>
+                      </button>
+                      <mat-menu #menu="matMenu">
+                        <button mat-menu-item >
+                          Edit
+                        </button>
+                        <button mat-menu-item >
+                            Delete
+                        </button>
+                      </mat-menu>
+                </mat-card-header>
+                <mat-divider inset></mat-divider>
+                <mat-card-content >
+                  <p class="active">{{ongoing.issueStatus}}</p>
+                  <p class="active">{{ongoing.type}}</p>
+                </mat-card-content>
+                <mat-divider inset></mat-divider>
+                <mat-card-actions>
+                    <button mat-raised-button color="primary" (click)="openDialog(ongoing)">View Details</button>
+                </mat-card-actions>
+            </mat-card>
+          </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">search</mat-icon>
+            Done
+          </ng-template>
+          <mat-card class="example-card my-2" *ngFor= "let completed of done; let i = index" >
+            <mat-card-header>
+                <div mat-card-avatar class="header-image"></div>
+                <mat-card-title>{{completed.name}}</mat-card-title>
+                <button mat-icon-button [matMenuTriggerFor]="menu" class="menu">
+                    <mat-icon>more_vert</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item >
+                      Edit
+                    </button>
+                    <button mat-menu-item >
+                        Delete
+                    </button>
+                  </mat-menu>
+            </mat-card-header>
+            <mat-divider inset></mat-divider>
+            <mat-card-content >
+              <p class="active">{{completed.issueStatus}}</p>
+              <p class="active">{{completed.type}}</p>
+            </mat-card-content>
+            <mat-divider inset></mat-divider>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="openDialog(completed)">View Details</button>
+            </mat-card-actions>
+        </mat-card>
+        </mat-tab>
+      </mat-tab-group>
+<!-- <div cdkDropListGroup>
+    <div class="example-container">
+      <h2>To do</h2>
+  
+      <div
+        cdkDropList
+        [cdkDropListData]="backlog"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of backlog" cdkDrag><p>{{item.id}}</p>
+        <p>{{item.name}}</p>
+        <p>{{item.issueStatus}}</p><p>{{item.type}}</p></div>
+      </div>
+    </div>
+
+    <div class="example-container">
+        <h2>In progress</h2>
+    
+        <div
+          cdkDropList
+          [cdkDropListData]="inProgress"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="example-box" *ngFor="let item of inProgress" cdkDrag><p>{{item.id}}</p>
+            <p>{{item.name}}</p>
+            <p>{{item.issueStatus}}</p><p>{{item.type}}</p></div>
+        </div>
+      </div>
+  
+    <div class="example-container">
+      <h2>Done</h2>
+  
+      <div
+        cdkDropList
+        [cdkDropListData]="done"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of done" cdkDrag><p>{{item.id}}</p>
+            <p>{{item.name}}</p>
+            <p>{{item.issueStatus}}</p><p>{{item.type}}</p></div>
+      </div>
+    </div>
+  </div> -->
+</div>

@@ -1,0 +1,51 @@
+<div class="task-popup">
+    <div class="create-task-btn" *ngIf="!toggleCreateTask">
+        <button mat-raised-button color="primary" (click)="handleToggleCreateTask()">Create Task/Issue</button>
+        </div>
+        <div class="create-task-form" *ngIf="toggleCreateTask">
+            <mat-form-field appearance="outline" class="row">
+                <mat-label>Task Name</mat-label>
+                <input matInput placeholder="Task Name"  [formControl]="name">
+            </mat-form-field>
+            <mat-form-field class="comment-box" appearance="outline">
+                <mat-label>Task Description</mat-label>
+                <textarea matInput placeholder="Description" [formControl]="description"></textarea>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Assigned To</mat-label>
+                <mat-select [(ngModel)]="assignedTo" name="members">
+                  <mat-option *ngFor="let projectMember of projectMembers" [value]="projectMember.id">
+                    {{projectMember.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Report To</mat-label>
+                <mat-select [(ngModel)]="reportTo" name="members" >
+                  <mat-option *ngFor="let projectMember of projectMembers"  [value]="projectMember.id">
+                    {{projectMember.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Status</mat-label>
+                <mat-select [(ngModel)]="status" name="members" >
+                  <mat-option *ngFor="let status of statusList"  [value]="status.id">
+                    {{status.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Type</mat-label>
+                <mat-select [(ngModel)]="issueType" name="members" >
+                  <mat-option *ngFor="let issueType of issueTypeList"  [value]="issueType.id">
+                    {{issueType.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            
+            <button mat-raised-button color="primary" (click)="createTask(name.value, description.value, assignedTo, reportTo, status, issueType)">Create</button>
+            <button mat-raised-button color="warn" (click)="handleToggleCreateTask()">Cancel</button>
+        </div>
+</div>

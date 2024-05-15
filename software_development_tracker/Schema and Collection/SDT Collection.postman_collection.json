@@ -1,0 +1,407 @@
+{
+	"info": {
+		"_postman_id": "d24285d6-439e-4a08-a5e2-a87eb6967cb3",
+		"name": "SDT Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register API",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\":\"User\",\r\n    \"Email\":\"User@gmail.com\",\r\n    \"Password\":\"Password123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44338/Account/Register",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44338",
+					"path": [
+						"Account",
+						"Register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login API",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\":\"Vijay143Lulu@gmail.com\",\r\n    \"Password\":\"Lulu143\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44338/Account/Login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44338",
+					"path": [
+						"Account",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save User API",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UserId\": 2,\r\n    \"Password\":\"password123\",\r\n    \"Email\": \"vijayanand@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44338/Account/SaveUser",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44338",
+					"path": [
+						"Account",
+						"SaveUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserList API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44338/Account/GetUserList",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44338",
+					"path": [
+						"Account",
+						"GetUserList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create/Update Project API",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\":\"Project updated\",\r\n    \"Description\":\"Project Description changed\",\r\n    \"userID\": 2,\r\n    \"projectId\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44338/Project/SaveProject",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44338",
+					"path": [
+						"Project",
+						"SaveProject"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Projects For User API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44338/Project/GetProjects?UserID=2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44338",
+					"path": [
+						"Project",
+						"GetProjects"
+					],
+					"query": [
+						{
+							"key": "UserID",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Map User with Project API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44338/Project/MapUserWithProject?ProjectId=2&UserId=1009",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44338",
+					"path": [
+						"Project",
+						"MapUserWithProject"
+					],
+					"query": [
+						{
+							"key": "ProjectId",
+							"value": "2"
+						},
+						{
+							"key": "UserId",
+							"value": "1009"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Task Create/Update API",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\":\"task sample test\",\r\n    \"Description\":\"task Description test\",\r\n    \"CreatedBy\": 2,\r\n    \"AssignedTo\":1006,\r\n        \"ReportTo\":2,\r\n        \"StatusId\":5,\r\n        \"IssueTypeId\":3,\r\n        \"ProjectId\":2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44338/Project/SaveTask",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44338",
+					"path": [
+						"Project",
+						"SaveTask"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Task Create/Update API Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"StatusId\":7,\r\n        \"TaskId\":1004\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44338/Project/UpdateTaskStatus",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44338",
+					"path": [
+						"Project",
+						"UpdateTaskStatus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Task Deletion API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44338/Project/DeleteTask?TaskId=3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44338",
+					"path": [
+						"Project",
+						"DeleteTask"
+					],
+					"query": [
+						{
+							"key": "TaskId",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Tasks API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44338/Project/GetTaskCards?ProjectId=2&UserId=2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44338",
+					"path": [
+						"Project",
+						"GetTaskCards"
+					],
+					"query": [
+						{
+							"key": "ProjectId",
+							"value": "2"
+						},
+						{
+							"key": "UserId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Task Data API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44338/Project/GetTaskData?TaskId=4",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44338",
+					"path": [
+						"Project",
+						"GetTaskData"
+					],
+					"query": [
+						{
+							"key": "TaskId",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Status List API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44338/Project/GetStatusList",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44338",
+					"path": [
+						"Project",
+						"GetStatusList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Issue Type List API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44338/Project/GetIssueTypeList",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44338",
+					"path": [
+						"Project",
+						"GetIssueTypeList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44338/Project/GetMembersListForProject?ProjectId=2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44338/Project/GetMembersListForProject?ProjectId=2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44338",
+					"path": [
+						"Project",
+						"GetMembersListForProject"
+					],
+					"query": [
+						{
+							"key": "ProjectId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
